@@ -1,0 +1,4 @@
+{"type":"methodEntry","timeNs":100,"threadId":1,"class":"Example","method":"run"}
+{"type":"allocation","timeNs":110,"threadId":1,"sizeBytes":-4}
+not-json
+{"type":"methodExit","timeNs":"later","threadId":1,"class":"Example","method":"run"}

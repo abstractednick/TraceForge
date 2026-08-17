@@ -1,0 +1,38 @@
+name: Feature request
+description: Propose a focused improvement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What profiling workflow or limitation should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Describe behavior, API/format impact, and alternatives considered.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Kotlin runtime
+        - Native agent
+        - Trace format
+        - Python CLI
+        - Documentation or sample
+        - Build and CI
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: overhead
+    attributes:
+      label: Performance and safety considerations
+      description: Note expected overhead, privacy, compatibility, or failure-mode effects.

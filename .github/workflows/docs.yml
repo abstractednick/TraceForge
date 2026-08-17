@@ -1,0 +1,39 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  hygiene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reject placeholder citations and trailing whitespace
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          errors = []
+          for path in Path(".").rglob("*.md"):
+              if ".git" in path.parts:
+                  continue
+              text = path.read_text(encoding="utf-8")
+              placeholder = "[" + "web:"
+              if placeholder in text:
+                  errors.append(f"{path}: contains a placeholder citation")
+              for line_number, line in enumerate(text.splitlines(), 1):
+                  if line.rstrip() != line:
+                      errors.append(f"{path}:{line_number}: trailing whitespace")
+          if errors:
+              raise SystemExit("\n".join(errors))
+          PY
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --exclude-mail "**/*.md"
+          fail: true
