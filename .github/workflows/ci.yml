@@ -25,7 +25,7 @@ jobs:
           cmake -S traceforge-agent -B build/native
           cmake --build build/native --parallel
           ctest --test-dir build/native --output-on-failure
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
