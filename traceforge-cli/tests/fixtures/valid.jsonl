@@ -1,0 +1,4 @@
+{"type":"diagnostic","timestamp_ns":1000000,"thread":"main","message":"trace started"}
+{"type":"method_entry","timestamp_ns":1010000,"thread":"main","class":"com.example.Checkout","method":"submit","signature":"()V"}
+{"type":"allocation","timestamp_ns":1030000,"thread":"main","object_class":"java.lang.String","size_bytes":64}
+{"type":"method_exit","timestamp_ns":1110000,"thread":"main","class":"com.example.Checkout","method":"submit","signature":"()V"}
